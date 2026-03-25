@@ -8,6 +8,9 @@ RUN apt-get update && apt-get install -y \
     gnupg \
     python3 \
     sudo \
+    procps \
+    htop \
+    telnet \
     && rm -rf /var/lib/apt/lists/*
 
 # Create non-root user that will run Claude
