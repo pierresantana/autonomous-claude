@@ -27,7 +27,7 @@ run:
 	@[ -n "$(REPO_PATH)" ] || (echo "ERROR: REPO_PATH is not set. Add it to .env or pass as argument." && exit 1)
 	@{ [ -n "$(CLAUDE_PROMPT)" ] || [ -n "$(CLAUDE_COMMAND)" ]; } || \
 		(echo "ERROR: CLAUDE_PROMPT or CLAUDE_COMMAND must be set." && exit 1)
-	$(eval CID := $(shell docker run -d --rm \
+	$(eval CID := $(shell docker run -dt --rm \
 		-e CLAUDE_CODE_OAUTH_TOKEN=$(CLAUDE_CODE_OAUTH_TOKEN) \
 		-e CLAUDE_PROMPT="$(CLAUDE_PROMPT)" \
 		-e CLAUDE_COMMAND="$(CLAUDE_COMMAND)" \

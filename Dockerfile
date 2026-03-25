@@ -7,10 +7,12 @@ RUN apt-get update && apt-get install -y \
     ca-certificates \
     gnupg \
     python3 \
+    sudo \
     && rm -rf /var/lib/apt/lists/*
 
 # Create non-root user that will run Claude
-RUN useradd -m -s /bin/bash claude
+RUN useradd -m -s /bin/bash claude \
+    && echo 'claude ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/claude
 
 # Install Claude Code as that user
 USER claude

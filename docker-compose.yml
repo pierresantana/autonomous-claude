@@ -11,3 +11,5 @@ services:
       - ${REPO_PATH}:/workspace
       - ${CLAUDE_CONFIG_DIR:-~/.claude}:/home/claude/.claude:ro
     working_dir: /workspace
+    tty: true
+    stdin_open: true
