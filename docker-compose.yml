@@ -1,0 +1,10 @@
+services:
+  claude:
+    build: .
+    image: autonomous-claude
+    environment:
+      - CLAUDE_CODE_OAUTH_TOKEN=${CLAUDE_CODE_OAUTH_TOKEN}
+      - CLAUDE_PROMPT=${CLAUDE_PROMPT}
+    volumes:
+      - ${REPO_PATH}:/workspace
+    working_dir: /workspace
