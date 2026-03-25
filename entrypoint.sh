@@ -17,6 +17,14 @@ if [ ! -d "/workspace/.git" ]; then
     echo "WARNING: /workspace does not appear to be a git repository."
 fi
 
+# Configure git identity if provided
+if [ -n "$GIT_USER_NAME" ]; then
+    git config --global user.name "$GIT_USER_NAME"
+fi
+if [ -n "$GIT_USER_EMAIL" ]; then
+    git config --global user.email "$GIT_USER_EMAIL"
+fi
+
 echo "==> Working directory: /workspace"
 
 # If CLAUDE_COMMAND is set, run it directly (bypasses Claude)
